@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "ShiftZen - Intercom Triage",
+  "version": "9.0.0",
+  "description": "Smart agent triage & AI replies embedded in Intercom.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://app.intercom.com/*",
+    "https://zeenie-llm-api.zenotibeta.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://app.intercom.com/*"],
+      "js": ["content.js"],
+      "css": ["panel.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": { "default_title": "Toggle ShiftZen" },
+  "background": { "service_worker": "background.js" },
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+}
